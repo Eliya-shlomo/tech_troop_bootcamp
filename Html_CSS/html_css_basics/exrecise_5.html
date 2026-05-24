@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us Form</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        fieldset {
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            padding: 15px;
+        }
+        legend {
+            font-size: 1.1em;
+            padding: 0 5px;
+            font-weight: bold;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: inline-block;
+            width: 60px;
+            font-weight: bold;
+        }
+        textarea {
+            width: 400px;
+            height: 100px;
+            display: block;
+            margin-top: 5px;
+        }
+        .buttons-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Contact Us</h1>
+
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Personal Information</legend>
+
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Message Details</legend>
+            <div class="form-group">
+                <label for="subject">Subject:</label>
+                <select id="subject" name="subject" required>
+                    <option value="" disabled selected>Select subject</option>
+                    <option value="support">Technical Support</option>
+                    <option value="sales">Sales Inquiry</option>
+                    <option value="feedback">General Feedback</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <span style="font-weight: bold;">Priority:</span><br>
+                <input type="radio" id="low" name="priority" value="low">
+                <label style="font-weight: normal; width: auto;" for="low">Low</label>
+                
+                <input type="radio" id="medium" name="priority" value="medium" checked>
+                <label style="font-weight: normal; width: auto;" for="medium">Medium</label>
+                
+                <input type="radio" id="high" name="priority" value="high">
+                <label style="font-weight: normal; width: auto;" for="high">High</label>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" placeholder="Your message..." required></textarea>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Preferences</legend>
+
+            <div class="form-group">
+                <input type="checkbox" id="newsletter" name="newsletter" value="subscribe">
+                <label style="font-weight: normal; width: auto;" for="newsletter">Subscribe to newsletter</label>
+            </div>
+
+            <div class="form-group">
+                <label for="contact-method">Contact Method:</label>
+                <select id="contact-method" name="contact_method">
+                    <option value="email" selected>Email</option>
+                    <option value="phone">Phone</option>
+                </select>
+            </div>
+        </fieldset>
+
+        <div class="buttons-container">
+            <input type="submit" value="Send Message">
+            <input type="reset" value="Reset">
+        </div>
+    </form>
+
+</body>
+</html>
