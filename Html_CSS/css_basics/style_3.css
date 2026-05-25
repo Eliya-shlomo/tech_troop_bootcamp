@@ -1,0 +1,17 @@
+.image-link {
+    display: inline-block;
+    margin: 20px;
+    vertical-align: middle;
+}
+
+.logo-img {
+    width: 150px;
+    height: 80px;
+    object-fit: contain;
+    transition: transform 0.2s;
+}
+
+.logo-img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
