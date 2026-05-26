@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 class="title primary-color">
+            Contact Us
+        </h1>
+    </header>
+    <div class="form-container">
+        <form method="post" class="form">
+            <div>
+                <fieldset>
+                    <legend class="primary-color">Personal Info</legend>
+                    <div>
+                        <div>
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" placeholder="Your Name" required>
+                        </div>
+                        <br>
+                        <div>
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" placeholder="your@email.com" required>
+                        </div>
+                        <br>
+                        <div>
+                            <label for="phone">Phone:</label>
+                            <input type="tel" id="phone" placeholder="XXX-XXX-XXXX" required>    
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <br>
+            <div>
+
+                <fieldset>
+                    <legend class="primary-color">Message Details</legend>
+                    <div>
+                        <div>
+                            <label for="subject-select">Subject:</label>
+                            <select name="subject" id="subject-select" >
+                                <option value="">Select Subject</option>
+                                <option value="general-question">General Question</option>
+                                <option value="support">Support</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="suggestions">Suggestions</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <br>
+                        <div>
+                            <label>Priority:</label>
+                            <div class="radio-group">
+                                <div>
+                                    <input type="radio" name="priority" id="low">
+                                    <label for="low">low</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="priority" id="medium">
+                                    <label for="medium">medium</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="priority" id="high">
+                                    <label for="high">high</label>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div>
+                            <label>Message:</label>
+                            <br>
+                            <textarea name="message" id="message" maxlength="100" placeholder="Your message..." cols="40" rows="5" required></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <br class="section-br">
+            <div>
+                <fieldset>
+                    <legend class="primary-color">Preferences</legend>
+                    <div>
+                        <input type="checkbox" name="subscribe" id="subscribe">
+                        <label for="subscribe">Subscribe to newsletter</label>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="contact-method">Contact Method</label>
+                        <select name="contact-method" id="contact-method">
+                            <option value="">Select Contact Method</option>
+                            <option value="email">Email</option>
+                            <option value="sms">sms</option>
+                        </select>
+                    </div>
+                </fieldset>
+            </div>
+            <br>
+            <div class="buttons">
+                <button type="submit" id="send-button">Send Message</button>
+                <button type="reset" id="reset-button">Reset</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

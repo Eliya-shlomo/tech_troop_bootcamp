@@ -1,0 +1,22 @@
+.parent{
+    position: relative;
+    background-color:  blue;
+    height: 100vh;
+    width: 100vw;
+}
+
+.x{
+    position: absolute;
+    background-color: red;
+    height: 40px;
+    width: 100%;
+    top: 10%
+}
+.y{
+    position: absolute;
+    background-color: red;
+    height: 100%;
+    width: 40px;
+    left: 10%;
+}
+
