@@ -1,0 +1,57 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    height: 600px;
+    border: 5px solid rgb(242, 116, 116);
+    margin: 20px auto;
+}
+
+.upper-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    padding: 20px;
+}
+
+.circle {
+    width: 150px;
+    height: 150px;
+    background-color: rgb(242, 116, 116);
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.text {
+    font-family: sans-serif;
+    text-align: center;
+    width: 500px;
+}
+
+.bottom-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    border-top: 5px solid rgb(242, 116, 116);
+    padding: 20px;
+}
+
+.right-bricks-group {
+    display: flex;
+    gap: 15px;
+}
+
+.brick {
+    background-color: rgb(242, 116, 116);
+    height: 15px;
+    width: 60px;
+}

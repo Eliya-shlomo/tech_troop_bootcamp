@@ -1,0 +1,84 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(109, 109, 109);
+}
+.container .up{
+    width: 100vw;
+    height: 100vh;
+    color: rgb(4, 62, 99);
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 40px;
+}
+.container .center{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    background-color: rgb(109, 109, 109);
+
+}
+.container .buttom{
+    width: 100vw;
+    height: 100vh;
+    background-color:rgb(109, 109, 109);
+    box-sizing: border-box;
+    background-color: rgb(109, 109, 109);
+}
+
+.center .left-column{
+    display: flex;
+    width: 50%;
+    justify-content: space-evenly;
+    background-color:rgb(109, 109, 109);
+    box-sizing: border-box;
+    background-color: rgb(109, 109, 109);
+    
+}
+
+.left-column .box-left{
+    width: calc(100% - 20px);
+    height: 265px;
+    background-color: rgb(17, 150, 227);
+}
+
+.center .right-column{
+    width: 50%;
+    display: flex;
+    background-color:rgb(109, 109, 109);
+    box-sizing: border-box;
+    gap: 5px;
+    flex-wrap: wrap;
+    
+}
+
+.right-column .box-1{
+    
+    width: calc(50% - 5px);
+    height: 130px;
+    background-color: rgb(17, 150, 227);
+}
+
+.right-column .box-2{
+    width: calc(50% - 5px);
+    height: 130px;
+    background-color: rgb(17, 150, 227);
+}
+
+.right-column .box-3{
+    width: calc(50% - 5px);
+    height: 130px;
+    background-color: rgb(17, 150, 227);
+}
+
+.right-column .box-4{
+    width: calc(50% - 5px);
+    height: 130px;
+    background-color: rgb(17, 150, 227);
+}
+
