@@ -1,0 +1,129 @@
+body {
+    background-color: #5c43d4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
+    padding: 20px;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    background-color: #4351df;
+    padding: 12px;
+    border-radius: 20px;
+    width: 800px;
+    box-sizing: border-box;
+}
+
+.box-left {
+    width: 45%;
+    height: 300px;
+    background: linear-gradient(135deg, #5175f0, #7a51c4);
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle {
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 75px;                 
+    height: 75px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+}
+
+.box-right {
+    width: 55%;
+    background-color: white;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    padding: 35px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.title {
+    margin: 0 0 10px 0;
+    color: #2c3e50;
+    font-size: 26px;
+}
+
+.description {
+    margin: 0 0 20px 0;
+    color: #7f8c8d;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    color: #e74c3c;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.btn-add-to-cart {
+    background: linear-gradient(135deg, #5175f0, #7a51c4);
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    .card {
+        flex-direction: column;
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .box-left {
+        width: 100%;
+        height: 250px;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        border-bottom-left-radius: 0;
+    }
+
+    .box-right {
+        width: 100%;
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+        border-top-right-radius: 0;
+        padding: 25px;
+    }
+}
+
+@media (max-width: 600px) {
+    .box-right {
+        text-align: center;
+    }
+
+    .card-footer {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .btn-add-to-cart {
+        width: 100%;
+    }
+}
