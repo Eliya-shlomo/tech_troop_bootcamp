@@ -217,5 +217,57 @@ body{
 .project{
     display: flex;
     flex-direction: row;
-    
+    gap: 20px;
+    width: 100%;
+    padding: 20px 80px;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.project-card{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: #ccd0d4;
+    border-radius: 15px;
+    box-sizing: border-box;
+    padding: 12px 24px;
+}
+
+.project-card .top{
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+.project-card .buttom{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.project-name{
+    font-size: 22px;
+    margin: 0;
+}
+.project-card .project-description{
+    font-size: 16px;
+    color: #4b5563;
+    line-height: 1.6;
+    margin: 0;
+}
+.view-project{
+    display: inline-block;
+    background-color: #f59e0b;
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 12px;
+    width: fit-content;
+    transition: background-color 0.2s;
+}
+.view-project:hover{
+    background-color: #f8ad2c;
 }
