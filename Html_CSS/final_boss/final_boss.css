@@ -192,82 +192,92 @@ body{
     border-radius: 999px;
 }
 
-.projects{
+.projects {
     display: flex;
     flex-direction: column;
     width: 100%;
-    width: 100%;
-    padding: 20px 80px;
+    padding: 60px 80px; 
     box-sizing: border-box;
-    background-color: #f0f4f8;
-    flex: 1;
+    background-color: #f8fafc; 
     gap: 40px;
 }
 
-.headline-projects{
+.headline-projects {
     display: flex;
     justify-content: center;
 }
-.headline-projects #my-projects{
+
+.headline-projects #my-projects {
     font-size: 32px;
     font-weight: 800;
     color: #0f172a;
     margin: 0;
 }
-.project{
+
+.project {
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 30px; 
     width: 100%;
-    padding: 20px 80px;
-    box-sizing: border-box;
     margin: 0;
 }
 
-.project-card{
+.project-card {
     display: flex;
     flex-direction: column;
     flex: 1;
-    background-color: #ccd0d4;
-    border-radius: 15px;
-    box-sizing: border-box;
-    padding: 12px 24px;
+    background-color: white; 
+    border-radius: 12px;   
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); 
+    overflow: hidden;      
 }
 
-.project-card .top{
+.project-card .top {
     display: flex;
     justify-content: center;
-    flex: 1;
+    align-items: center;
+    background-color: #e2e8f0;
+    height: 200px;             
+    color: #64748b;
+    font-weight: 500;
+    font-size: 14px;
 }
 
-.project-card .buttom{
+.project-card .bottom {      
     display: flex;
     flex-direction: column;
-    flex: 1;
+    padding: 24px;            
+    gap: 12px;               
 }
 
-.project-name{
-    font-size: 22px;
+.project-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f172a;
     margin: 0;
 }
-.project-card .project-description{
-    font-size: 16px;
+
+.project-card .project-description {
+    font-size: 15px;
     color: #4b5563;
-    line-height: 1.6;
+    line-height: 1.5;         
     margin: 0;
 }
-.view-project{
+
+.view-project {
     display: inline-block;
-    background-color: #f59e0b;
+    background-color: #f59e0b; 
     color: white;
     text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 8px;
+    padding: 10px 20px;
+    border-radius: 6px;
     font-weight: 600;
-    font-size: 12px;
+    font-size: 14px;
     width: fit-content;
-    transition: background-color 0.2s;
+    margin-top: 8px;          
+    transition: background-color 0.2s ease;
 }
-.view-project:hover{
-    background-color: #f8ad2c;
+
+.view-project:hover {
+    background-color: #d97706; 
 }
