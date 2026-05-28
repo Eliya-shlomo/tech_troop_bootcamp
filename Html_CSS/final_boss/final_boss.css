@@ -192,3 +192,30 @@ body{
     border-radius: 999px;
 }
 
+.projects{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    width: 100%;
+    padding: 20px 80px;
+    box-sizing: border-box;
+    background-color: #f0f4f8;
+    flex: 1;
+    gap: 40px;
+}
+
+.headline-projects{
+    display: flex;
+    justify-content: center;
+}
+.headline-projects #my-projects{
+    font-size: 32px;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0;
+}
+.project{
+    display: flex;
+    flex-direction: row;
+    
+}
