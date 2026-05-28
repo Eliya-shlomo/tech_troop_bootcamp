@@ -39,3 +39,44 @@ body{
     margin: 0;
     padding: 0;
 }
+
+.info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    padding: 20px 80px;
+    box-sizing: border-box;
+    background-color: #f0f4f8;
+    flex: 1;
+    gap: 40px;
+    box-sizing: border-box;
+}
+
+.info .info-left{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 20px;
+    max-width: 550px;
+}
+
+.info .info-right{
+    display: flex;
+    justify-content: center;
+    flex:1
+}
+
+#headline{
+    font-size: 44px;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0;
+}
+
+#description{
+    font-size: 18px;
+    color: #4b5563;
+    line-height: 1.6;
+    margin: 0;
+}
