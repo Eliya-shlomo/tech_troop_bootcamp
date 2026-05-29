@@ -284,14 +284,90 @@ body{
 
 .get-in-touch{
     width: 100%;
-    display: flex;
-    padding:  60px 80px;
-    box-sizing: border-box;    
+    padding: 60px 80px;
+    box-sizing: border-box;
+    background-color: white;
 }
 
-.get-in-touch .top{
-    display: flex;
-    justify-content: center;
-    a
+.get-in-touch-headline {
+    font-size: 32px;
+    font-weight: 800;
+    color: #0f172a;
+    text-align: center;
+    margin-bottom: 40px;
 }
 
+.get-in-touch-bottom {
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
+    width: 100%;
+}
+
+.contact-form {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
+    width: 100%;
+}
+
+.form-group label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #334155;
+}
+
+
+
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+
+.form-group input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+.send-btn {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    width: fit-content; 
+}
+
+.right{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    left: 0;
+    top: 0;
+}
+
+.contact-info{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+}
