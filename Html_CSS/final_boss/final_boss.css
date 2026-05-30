@@ -392,3 +392,18 @@ body{
     font-size: 14px;
     font-weight: bold;
 }
+
+
+.main-footer {
+    background-color: #1e293b; 
+    color: #cbd5e1;
+    text-align: center;
+    padding: 30px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.main-footer p {
+    margin: 0; 
+}
