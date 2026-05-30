@@ -462,3 +462,42 @@ body{
     cursor: pointer;
     color: #0f172a;
 }
+
+
+@media (max-width: 768px) {
+
+    .main-header {
+        padding: 16px 20px;
+    }
+
+    .main-nav {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .info {
+        flex-direction: column;
+        padding: 30px 20px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .info-right {
+        justify-content: center;
+    }
+
+    #headline {
+        font-size: 28px;
+    }
+
+    #description {
+        font-size: 16px;
+    }
+
+    #get-in-touch {
+        margin: 0 auto;
+    }
+}
