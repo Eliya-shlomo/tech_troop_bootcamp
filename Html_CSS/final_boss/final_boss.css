@@ -113,6 +113,7 @@ body{
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
+    object-position: center top;
 }   
 
 .about-me {
@@ -495,6 +496,40 @@ body{
         margin: 0 auto;
     }
 
+    .about-me{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .about-me-left{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .skills-container{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: space-between;
+
+    }
+    .skill-row{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        gap: 50px;
+        
+    }
+
+    .projects{
+        display: flex;
+        flex-direction: column;
+    }
+    .project{
+        display: flex;
+        flex-direction: column;
+    }
 
     .get-in-touch {
         padding: 40px 20px;
@@ -507,6 +542,23 @@ body{
 
     .get-in-touch-headline {
         font-size: 26px;
+    }
+
+    .send-btn{
+        width: 100%;
+    }
+
+    .get-in-touch .right{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .contact-item{
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .main-footer {
