@@ -151,3 +151,80 @@ nodeWithTwoChildren.removeNode(8);
 nodeWithTwoChildren.findNode(8);   
 nodeWithTwoChildren.findNode(9);   
 
+
+
+// #6
+// Given a string of words separated by spaces, return the longest word.
+// If there is a tie, return the first one.
+//
+// Constraints: the string will always have at least one word.
+// You may not use any built-in sort functions.
+//
+// Input:  "the quick brown fox"   →  Output: "quick"
+// Input:  "cat elephant dog"      →  Output: "elephant"
+// Input:  "one two six ten"       →  Output: "one"  (tie → first wins)
+
+function longestWord(str) {
+    const words = str.split(" ")
+    let longest = words[0]
+    for(let i=1; i<words.length;i++){
+        if(words[i].length>longest.length){
+            longest = words[i]
+        }
+    }
+    return longest
+
+
+}
+
+
+
+// #7 
+// Given two strings, return true if they are anagrams of each other,
+// false otherwise. An anagram uses the same characters the same number
+// of times, just in a different order.
+//
+// Constraints: strings will only contain lowercase letters, no spaces.
+//
+// Input:  "listen", "silent"  →  Output: true
+// Input:  "hello",  "world"   →  Output: false
+// Input:  "cat",    "car"     →  Output: false
+
+
+function mapsEqual(a, b) {
+    if (a.size !== b.size) return false;
+  
+    for (let [key, val] of a) {
+      if (b.get(key) !== val) return false;
+    }
+  
+    return true;
+  }
+
+function isAnagram(a, b) {
+    
+    const a_map = new Map()
+    const b_map = new Map()
+
+    for(let char of a){
+        if(a_map.has(char)){
+            a_map.set(char,a_map.get(char)+1)
+        }
+        else{
+            a_map.set(char,1)
+        }
+    }
+
+    for(let char of b){
+        if(b_map.has(char)){
+            b_map.set(char,b_map.get(char)+1)
+        }
+        else{
+            b_map.set(char,1)
+        }
+    }
+
+    const is_equel = mapsEqual(a_map,b_map)
+    return is_equel 
+
+  }
