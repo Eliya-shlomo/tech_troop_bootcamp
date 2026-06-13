@@ -6,7 +6,7 @@ class TrieNode {
     }
 }
 
-class AutoCompleteTrie {
+export class AutoCompleteTrie {
     constructor() {
         this.root = new TrieNode();
     }

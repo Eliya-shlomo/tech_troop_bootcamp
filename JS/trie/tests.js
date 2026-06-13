@@ -1,3 +1,6 @@
+import {AutoCompleteTrie } from './index.js';
+
+
 function assert(condition, testName) {
     if (condition) {
         console.log(`✅ PASSED: ${testName}`);
