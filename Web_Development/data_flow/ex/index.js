@@ -1,4 +1,3 @@
-// 1. מערך הפוסטים עם כמה אובייקטים ראשוניים
 const posts = [
     { name: "Eliya", text: "Hello everyone! This is my first post." },
     { name: "Bob", text: "Does anyone know where my ball went?" }
