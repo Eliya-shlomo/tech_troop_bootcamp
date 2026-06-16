@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Dictionary</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Initial State</h2>
+    
+    <div class="input-group">
+        <input type="text" id="wordInput" placeholder="Enter a word to add to dictionary">
+        <button id="addBtn">Add Word</button>
+    </div>
+
+    <div id="greenRed"></div>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Start typing to see suggestions...">
+        <ul id="suggestions" class="suggestions-list"></ul>
+    </div>
+
+    <div class="counter-box">
+        <span class="counter-num" id="wordCount">0</span>
+        <span class="counter-text">Words in Dictionary</span>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
