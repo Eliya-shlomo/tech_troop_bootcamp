@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random User Page Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        
+        <main class="main-content">
+            
+            <section id="user-profile" class="profile-card">
+                <img id="user-img" src="" alt="User Profile Picture" class="user-avatar">
+                <div class="user-details">
+                    <h1 id="user-name">Loading Name...</h1>
+                    <p id="user-location">Loading Location...</p>
+                </div>
+            </section>
+
+            <section id="quote-section" class="content-box">
+                <h3>Favorite quote:</h3>
+                <blockquote id="quote-text">"Loading quote..."</blockquote>
+                <cite id="quote-author">- Kanye West</cite>
+            </section>
+
+            <section id="pokemon-section" class="content-box pokemon-container">
+                <img id="pokemon-img" src="" alt="Favorite Pokemon" class="pokemon-sprite">
+                <p>Favorite Pokemon: <span id="pokemon-name">Loading...</span></p>
+            </section>
+
+            <hr class="separator">
+
+            <section id="about-section" class="content-box">
+                <h3>About me</h3>
+                <p id="about-text">Loading meat text...</p>
+            </section>
+
+            <section class="controls-section">
+                <button id="generate-btn" class="btn btn-generate">Generate User</button>
+                
+                <div class="storage-controls">
+                    <button id="save-btn" class="btn btn-secondary">Save User Page</button>
+                    <select id="saved-users-dropdown" class="dropdown">
+                        <option value="">Select Saved User...</option>
+                    </select>
+                    <button id="load-btn" class="btn btn-secondary">Load User Page</button>
+                </div>
+            </section>
+
+        </main>
+
+        <aside class="sidebar">
+            <div id="friends-container" class="friends-list">
+                <h2>Friends</h2>
+                <ul id="friends-ul">
+                    </ul>
+            </div>
+        </aside>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+    </body>
+</html>
