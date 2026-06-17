@@ -1,0 +1,150 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e6ecf0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+#container {
+    width: 600px;
+    background-color: #ffffff;
+    min-height: 100vh;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#input {
+    width: 100%;
+    height: 80px;
+    padding: 12px;
+    border: 1px solid #e6ecf0;
+    border-radius: 8px;
+    font-size: 16px;
+    resize: none;
+    box-sizing: border-box;
+    outline: none;
+}
+
+#input:focus {
+    border-color: #1da1f2;
+}
+
+#post {
+    background-color: #1da1f2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    float: right;
+}
+
+#post:hover {
+    background-color: #1991db;
+}
+
+#posts {
+    margin-top: 60px;
+    clear: both;
+}
+
+.post {
+    border-bottom: 1px solid #e6ecf0;
+    padding: 20px 0;
+    position: relative;
+}
+
+.post-text {
+    font-size: 18px;
+    color: #14171a;
+    line-height: 1.4;
+    margin-bottom: 15px;
+    word-wrap: break-word;
+}
+
+.delete {
+    color: #e0245e;
+    font-size: 13px;
+    cursor: pointer;
+    font-weight: bold;
+    position: absolute;
+    top: 20px;
+    right: 0;
+}
+
+.delete:hover {
+    text-decoration: underline;
+}
+
+.comments {
+    background-color: #f5f8fa;
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+}
+
+.comment {
+    padding: 8px 0;
+    border-bottom: 1px solid #e6ecf0;
+    font-size: 14px;
+    color: #14171a;
+    display: flex;
+    align-items: center;
+}
+
+.comment:last-child {
+    border-bottom: none;
+}
+
+.delete-comment {
+    color: #aab8c2;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 10px;
+    font-size: 12px;
+}
+
+.delete-comment:hover {
+    color: #e0245e;
+}
+
+.comment-text {
+    word-wrap: break-word;
+    flex: 1;
+}
+
+.comment-input {
+    width: 75%;
+    padding: 8px 12px;
+    border: 1px solid #e6ecf0;
+    border-radius: 20px;
+    font-size: 14px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.comment-input:focus {
+    border-color: #1da1f2;
+}
+
+.comment-button {
+    background-color: transparent;
+    color: #1da1f2;
+    border: 1px solid #1da1f2;
+    padding: 7px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.comment-button:hover {
+    background-color: #f5f8fa;
+}

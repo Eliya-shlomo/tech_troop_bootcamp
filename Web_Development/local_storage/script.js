@@ -47,8 +47,9 @@ window.onload = function() {
     if(!localStorage.getItem('wisdom')){
         return
     }
-    let rawWisom = localStorage.getItem('wisdom')
-    let wisdom_array = JSON.parse(rawWisom)
+
+    let rawWidsom = localStorage.getItem('wisdom')
+    let wisdom_array = JSON.parse(rawWidsom)
 
 
 
