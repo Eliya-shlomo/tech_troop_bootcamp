@@ -8,24 +8,19 @@
 </head>
 <body>
 
-    <div id="marquee-root"></div>
-    
-    <div class="search-container">
-        
-        <div class="search-bar">
-            <input type="text" id="search-input" class="search-input" placeholder="Search company...">
-            <button id="search-button" class="search-button">Search</button>
-        </div>
+  <div id="marquee"></div>
+  
+  <div>
+    <h2>Search Nasdaq Stocks</h2>
+    <div id="form"></div>
+    <div id="results"></div>
+  </div>
 
-        <div id="loading" class="loading-spinner hidden"></div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="Marquee.js"></script>
+  <script src="SearchForm.js"></script>
+  <script src="SearchResult.js"></script>
+  <script src="main.js"></script>
 
-        <ul id="results-list" class="results-list"></ul>
-
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="Marquee.js"></script>
-    <script src="script.js"></script>
-    <script src="company.js"></script>
 </body>
 </html>

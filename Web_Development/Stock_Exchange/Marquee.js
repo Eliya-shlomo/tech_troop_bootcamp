@@ -4,11 +4,16 @@ class Marquee {
     }
 
     async load() {
-        const response = await fetch('https://financialmodelingprep.com/stable/quotes/nasdaq?apikey=WtKB5TSUJbVGntrakVVCNPSX5qIqGNji');
-        const allStocks = await response.json();
-        const limitedStocks = allStocks.slice(0, 30); 
-        
-        this.render(limitedStocks);
+        try {
+            const response = await fetch('https://financialmodelingprep.com/api/v3/stock/list?apikey=WtKB5TSUJbVGntrakVVCNPSX5qIqGNji');
+            const allStocks = await response.json();
+            
+            const limitedStocks = Array.isArray(allStocks) ? allStocks.slice(0, 30) : []; 
+            
+            this.render(limitedStocks);
+        } catch (error) {
+            console.error("Marquee load failed:", error);
+        }
     }
 
     render(marqueeStocks) {
@@ -16,17 +21,34 @@ class Marquee {
         $(this.container).html('<div id="marquee-content" class="marquee-content"></div>');
 
         marqueeStocks.forEach(stock => {
-            const change = parseFloat(stock.changesPercentage);
-            const color = change >= 0 ? "#22c55e" : "#ef4444";
-            const sign = change >= 0 ? "+" : "";
+            const price = stock.price ? parseFloat(stock.price).toFixed(2) : "0.00";
 
             $("#marquee-content").append(`
-                <span class="marquee-item">
+                <span class="marquee-item" data-symbol="${stock.symbol}">
                     <span class="marquee-symbol">${stock.symbol}</span>
-                    <span class="marquee-price">$${stock.price.toFixed(2)}</span>
-                    <span class="marquee-change" style="color: ${color}">${sign}${change.toFixed(2)}%</span>
+                    <span class="marquee-price">$${price}</span>
                 </span>
             `);
         });
+    }
+
+    async updateData() {
+        try {
+            const response = await fetch('https://financialmodelingprep.com/api/v3/stock/list?apikey=WtKB5TSUJbVGntrakVVCNPSX5qIqGNji');
+            const allStocks = await response.json();
+            
+            const limitedStocks = Array.isArray(allStocks) ? allStocks.slice(0, 30) : [];
+
+            limitedStocks.forEach(stock => {
+                const $item = $(this.container).find(`[data-symbol="${stock.symbol}"]`);
+                
+                if ($item.length > 0) {
+                    const price = stock.price ? parseFloat(stock.price).toFixed(2) : "0.00";
+                    $item.find('.marquee-price').text(`$${price}`);
+                }
+            });
+        } catch (error) {
+            console.error("Marquee update failed:", error);
+        }
     }
 }
