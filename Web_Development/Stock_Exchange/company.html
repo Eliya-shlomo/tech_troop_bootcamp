@@ -1,50 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Company Details</title>
-    <link rel="stylesheet" href="style.css">
-</head>
 <body>
-
-    <div class="container">
-        <a href="index.html" class="back-btn">← Back to Search</a>
-        
-        <div id="loading" class="loader"></div>
-
-        <div id="company-card" class="hidden">
-            <div class="company-header">
-                <img id="company-img" src="" alt="Company Logo">
-                <div>
-                    <h1 id="company-name"></h1>
-                    <span id="company-symbol" class="company-symbol"></span>
-                </div>
-            </div>
-
-            <p id="company-desc" class="company-desc"></p>
-            
-            <div class="stock-info">
-                <div>
-                    <span class="label">Price:</span>
-                    <span id="stock-price" class="price-val"></span>
-                </div>
-                <div>
-                    <span class="label">Change:</span>
-                    <span id="stock-change" class="change-val"></span>
-                </div>
-            </div>
-
-            <a id="company-website" href="#" target="_blank" class="site-link">Visit Website</a>
-
-            <div class="chart-container">
-                <canvas id="historyChart"></canvas>
-            </div>
-        </div>
-    </div>
-
+    <div id="compInfo"></div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="company.js"></script>
-</body>
-</html>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="companyInfo.js"></script>
+    <script src="companyMain.js"></script>
+  </body>
