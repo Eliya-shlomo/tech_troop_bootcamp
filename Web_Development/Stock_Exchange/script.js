@@ -1,8 +1,7 @@
-
-
 class Model{
 
     constructor(){}
+
     async getData(value){
         const searchResponse = await fetch(`https://financialmodelingprep.com/stable/search-symbol?query=${value}&apikey=WtKB5TSUJbVGntrakVVCNPSX5qIqGNji`)
         const Data           = await searchResponse.json()
@@ -37,6 +36,14 @@ class Model{
 
         return finalResults
     }
+
+
+    async getMarqueeData() {
+        const response = await fetch('https://financialmodelingprep.com/stable/quotes/nasdaq?apikey=WtKB5TSUJbVGntrakVVCNPSX5qIqGNji');
+        const allStocks = await response.json();
+        const limitedStocks = allStocks.slice(0, 30); 
+        return limitedStocks;
+    }
 }
 
 
@@ -45,7 +52,7 @@ class View{
         this.model = new Model()
         this.init()
     }
-    init(){
+    async init(){
 
         let self = this
         const btnSearch = document.getElementById("search-button")
@@ -82,11 +89,17 @@ class View{
                         <span class="company-name">${company.name}</span>
                         <span class="company-symbol">${company.symbol}</span>
                         <span class="company-change" style="color: ${color}">${sign}${change}%</span>
+                        </a>
                     </li>
                 `);
             }
 
         }
+
+        const marqueeElement = document.getElementById("marquee-root");
+        const marquee = new Marquee(marqueeElement);
+        marquee.load();
+        
     }
 
 
