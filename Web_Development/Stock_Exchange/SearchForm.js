@@ -42,6 +42,7 @@ class SearchForm {
             
             this.container.dispatchEvent(searchEvent);
         };
+
     }
 
     async fetchData(value) {

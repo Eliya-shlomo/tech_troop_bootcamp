@@ -1,11 +1,34 @@
 class SearchResult {
     constructor(element) {
         this.container = element;
+        this.results = []
         this.initContainer();
     }
 
     initContainer() {
         $(this.container).html('<ul id="results-list" class="results-list"></ul>');
+
+        this.container.addEventListener('click', (event) => {
+            
+            if (!event.target.classList.contains('company-button')) {
+                return
+            }
+
+            const symbol = event.target.dataset.symbol
+
+            const company = this.results.find(company => company.symbol === symbol)
+
+            console.log(company)
+
+            const buttonEvent = new CustomEvent('buttonEvent-completed', { 
+                detail: {
+                    company: company,
+                }
+            });
+            
+            this.container.dispatchEvent(buttonEvent);
+
+        });
     }
 
     highlight(text, query) {
@@ -15,6 +38,9 @@ class SearchResult {
     }
 
     renderResults(results, query) {
+
+        this.results = results
+
         $("#results-list").empty();
 
         for (let i = 0; i < results.length; i++) {
@@ -34,6 +60,7 @@ class SearchResult {
                         <span class="company-symbol">${highlightedSymbol}</span>
                         <span class="company-change" style="color: ${color}">${sign}${change}%</span>
                     </a>
+                    <button class="company-button" data-symbol="${company.symbol}">Compare</button>
                 </li>
             `);
         }
