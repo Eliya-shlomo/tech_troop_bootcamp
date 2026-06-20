@@ -6,6 +6,9 @@ const main = async function () {
     const form = new SearchForm(formElement);
     const resultsElement = document.getElementById('results');
     const results = new SearchResult(resultsElement);
+    const compareElemnet = document.getElementById('compare-companies');
+    const companyCompare = new CompareList(compareElemnet);
+
     
     formElement.addEventListener('search-completed', (event) => {
         const { companies, query } = event.detail;
@@ -14,7 +17,9 @@ const main = async function () {
     resultsElement.addEventListener('buttonEvent-completed', (event) => {
         const { company } = event.detail;
         console.log(company);
+        companyCompare.addCompany(company)
     });
+
 };
 
 main();
