@@ -9,7 +9,8 @@ const main = async function () {
     const compareElemnet = document.getElementById('compare-companies');
     const companyCompare = new CompareList(compareElemnet);
 
-    
+    form.onSearch();
+
     formElement.addEventListener('search-completed', (event) => {
         const { companies, query } = event.detail;
         results.renderResults(companies, query);

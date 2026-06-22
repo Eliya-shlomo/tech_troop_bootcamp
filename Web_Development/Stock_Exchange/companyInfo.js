@@ -1,5 +1,5 @@
 class CompanyInfo {
-    
+
     constructor(element, symbol) {
         this.element = element;
         this.symbol = symbol;
@@ -19,11 +19,11 @@ class CompanyInfo {
             prices.push(limitData[i].close);
         }
 
-        const canvasEl = $(this.element).find(".history-chart")[0]; 
-        if (!canvasEl) return; 
+        const canvasEl = $(this.element).find(".history-chart")[0];
+        if (!canvasEl) return;
 
         const ctx = canvasEl.getContext('2d');
-        
+
         new Chart(ctx, {
             type: 'line',
             data: {
@@ -42,24 +42,31 @@ class CompanyInfo {
                 maintainAspectRatio: false
             }
         });
-    } 
+    }
 
     async load() {
         const response = await fetch(`https://financialmodelingprep.com/stable/company-profile?symbol=${this.symbol}&apikey=WtKB5TSUJbVGntrakVVCNPSX5qIqGNji`);
         const data = await response.json();
 
-        const profile = data.companyProfile[0];
+        // /stable/company-profile מחזיר מערך ישירות, לא data.companyProfile
+        const profile = Array.isArray(data) ? data[0] : data;
+
+        if (!profile) {
+            $(this.element).html(`<p>לא נמצאו נתונים עבור הסימול ${this.symbol}.</p>`);
+            return;
+        }
+
         const change = parseFloat(profile.changesPercentage);
 
         let color = "";
         let sign = "";
 
         if (change >= 0) {
-            color = "#22c55e"; 
+            color = "#22c55e";
             sign = "+";
         } else {
-            color = "#ef4444"; 
-            sign = ""; 
+            color = "#ef4444";
+            sign = "";
         }
 
         $(this.element).html(`
@@ -73,15 +80,13 @@ class CompanyInfo {
                     <span id="stock-change" style="color: ${color}">${sign}${change}%</span>
                 </div>
                 <a id="company-website" href="${profile.website}" target="_blank">Website</a>
-                
+
                 <div class="chart-container" style="position: relative; height:300px; width:100%">
                     <canvas class="history-chart"></canvas>
                 </div>
             </div>
-        `);    
+        `);
 
+        await this.addChart();
     }
 }
-
-
-

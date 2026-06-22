@@ -1,9 +1,8 @@
 const main = async function () {
-    const params = new URLSearchParams(location.search);
-    const symbol = params.get('symbol');
-    const compInfo = new CompanyInfo(document.getElementById('compInfo'), symbol);
-    await compInfo.load();
-    await compInfo.addChart();
-  }
-
-  main()
+  const params = new URLSearchParams(location.search);
+  const symbolsString = params.get('symbols');
+  const symbolsArray = symbolsString.split(',');
+  const compare = new Compare(document.getElementById('compareInfo'), symbolsArray);
+  await compare.load();
+};
+main();

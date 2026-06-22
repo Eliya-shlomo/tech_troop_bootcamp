@@ -61,8 +61,12 @@ body {
     background-color: #f5f5f5;
 }
 
+/* תוקן: היה display:none קבוע על הקלאס עצמו, כך שה-spinner
+   לא יכל להופיע בכלל בלי קשר ל-addClass/removeClass('hidden').
+   עכשיו .loading-spinner גלוי כברירת מחדל, וה-.hidden (למטה) הוא
+   שמסתיר אותו - בהתאם לקוד ב-SearchForm.js שמוסיף/מוריד 'hidden'. */
 .loading-spinner {
-    display: none;
+    display: block;
     width: 30px;
     height: 30px;
     border: 3px solid #f3f3f3;
@@ -70,6 +74,12 @@ body {
     border-radius: 50%;
     margin: 20px auto;
     animation: spin 1s linear infinite;
+}
+
+/* חסר בקובץ המקורי - קלאס עזר כללי שה-JS משתמש בו
+   (SearchForm.js: $("#loading").addClass("hidden") / removeClass("hidden")) */
+.hidden {
+    display: none !important;
 }
 
 @keyframes spin {
@@ -102,6 +112,61 @@ body {
     text-decoration: underline;
 }
 
+.result-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 8px;
+}
+
+.company-image {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    flex-shrink: 0;
+}
+
+.result-link {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    color: #1a202c;
+    text-decoration: none;
+}
+
+.result-link .company-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a202c;
+}
+
+.result-link .company-symbol {
+    font-size: 13px;
+    color: #718096;
+}
+
+.company-change {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.company-button {
+    padding: 6px 14px;
+    font-size: 13px;
+    background-color: #3182ce;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.company-button:hover {
+    background-color: #2b6cb0;
+}
+
 .back-btn {
     display: inline-block;
     margin-bottom: 20px;
@@ -118,12 +183,40 @@ body {
     text-align: left;
 }
 
-#company-img {
+
+.company-card {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 650px;
+    padding: 25px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+#company-img,
+.company-img {
     width: 60px;
     height: 60px;
     object-fit: contain;
     border-radius: 8px;
     border: 1px solid #e2e8f0;
+    margin-bottom: 12px;
+}
+
+#company-name,
+.company-name {
+    font-size: 20px;
+    color: #1a202c;
+    margin-bottom: 4px;
+}
+
+#company-symbol,
+.company-symbol {
+    display: inline-block;
+    color: #718096;
+    font-size: 14px;
+    margin-bottom: 12px;
 }
 
 .company-desc {
@@ -155,6 +248,20 @@ body {
     color: #1a202c;
 }
 
+
+#stock-price,
+.stock-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1a202c;
+}
+
+#stock-change,
+.stock-change {
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .site-link {
     display: block;
     background-color: #3182ce;
@@ -170,11 +277,139 @@ body {
     background-color: #2b6cb0;
 }
 
+
+#company-website,
+.company-website {
+    display: block;
+    background-color: #3182ce;
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+#company-website:hover,
+.company-website:hover {
+    background-color: #2b6cb0;
+}
+
 .chart-container {
     position: relative;
     height: 250px;
     width: 100%;
 }
-.highlight{
+
+.highlight {
     background-color: yellow;
+}
+
+
+.compare-company {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+    max-width: 1000px;
+    padding: 20px;
+}
+
+
+.company-to-compare {
+    flex: 1 1 280px;
+    max-width: 320px;
+}
+
+.compare-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    background-color: #ffffff;
+    padding: 12px 16px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 650px;
+}
+
+.compare-bar .company-to-compare {
+    flex: initial;
+    max-width: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #f7fafc;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.remove-btn {
+    border: none;
+    background: none;
+    color: #ef4444;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+}
+
+.compare-btn {
+    margin-left: auto;
+    padding: 8px 16px;
+    background-color: #3182ce;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.compare-btn:hover {
+    background-color: #2b6cb0;
+}
+
+
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    background-color: #1a202c;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.marquee-content {
+    display: flex;
+    gap: 30px;
+    white-space: nowrap;
+    width: max-content;
+    animation: marquee-scroll 30s linear infinite;
+}
+
+.marquee-item {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    color: #f9f9f9;
+    font-size: 14px;
+}
+
+.marquee-symbol {
+    font-weight: bold;
+    color: #63b3ed;
+}
+
+.marquee-price {
+    color: #f9f9f9;
+}
+
+@keyframes marquee-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }

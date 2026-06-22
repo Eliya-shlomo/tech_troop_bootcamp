@@ -7,10 +7,12 @@ class Marquee {
         try {
             const response = await fetch('https://financialmodelingprep.com/api/v3/stock/list?apikey=WtKB5TSUJbVGntrakVVCNPSX5qIqGNji');
             const allStocks = await response.json();
-            
-            const limitedStocks = Array.isArray(allStocks) ? allStocks.slice(0, 30) : []; 
-            
+
+            const limitedStocks = Array.isArray(allStocks) ? allStocks.slice(0, 30) : [];
+
             this.render(limitedStocks);
+
+            setInterval(() => this.updateData(), 60000);
         } catch (error) {
             console.error("Marquee load failed:", error);
         }
@@ -36,12 +38,12 @@ class Marquee {
         try {
             const response = await fetch('https://financialmodelingprep.com/api/v3/stock/list?apikey=WtKB5TSUJbVGntrakVVCNPSX5qIqGNji');
             const allStocks = await response.json();
-            
+
             const limitedStocks = Array.isArray(allStocks) ? allStocks.slice(0, 30) : [];
 
             limitedStocks.forEach(stock => {
                 const $item = $(this.container).find(`[data-symbol="${stock.symbol}"]`);
-                
+
                 if ($item.length > 0) {
                     const price = stock.price ? parseFloat(stock.price).toFixed(2) : "0.00";
                     $item.find('.marquee-price').text(`$${price}`);

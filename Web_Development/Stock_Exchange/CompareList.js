@@ -20,7 +20,8 @@ class CompareList{
             }
             else if(event.target.classList.contains('compare-btn')){
 
-                console.log(`comparing ${this.companyList}`)
+                const symbolsString  = this.companyList.map(company => company.symbol).join(',');
+                window.location.href = `compare.html?symbols=${symbolsString}`;
             }
             else{
                 return
@@ -29,6 +30,9 @@ class CompareList{
     }
 
     addCompany(companyToAdd){
+        if(this.companyList.length === 3){
+            return
+        }
         this.companyList.push(companyToAdd)
         this.renderCompareList()
     }
