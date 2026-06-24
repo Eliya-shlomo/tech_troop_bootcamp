@@ -1,0 +1,4 @@
+#ex-2{
+    display: grid;
+    grid-template-columns: repeat(10, 1fr)
+  }
