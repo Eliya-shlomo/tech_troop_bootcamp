@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import Exercise1 from './intro/Exercise1.jsx'
 import Exercise2 from './intro/Exercise2.jsx'
 import './intro/App.css' 
-import App from './app.jsx'
+import App from '/app.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
