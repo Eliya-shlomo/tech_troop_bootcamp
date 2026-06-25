@@ -2,7 +2,9 @@ import React from 'react';
 
 const Note = ({ note, onDeleteNote }) => {
 
-    const deleteNote = (idNote) => {
+    const deleteNote = (e, idNote) => {
+        e.stopPropagation(); 
+        
         const isConfirmed = window.confirm("Are you sure you want to delete this note?");
         
         if (isConfirmed) {
@@ -14,10 +16,10 @@ const Note = ({ note, onDeleteNote }) => {
         <div className='note-card'>
             {note.title && <h3 className="note-title">{note.title}</h3>}
             
-            <p>{note.content}</p>
-            <small>{note.date}</small> 
+            <p className="note-content">{note.content}</p>
+            <small className="note-date">{note.date}</small> 
             
-            <button id='button-delete' onClick={() => deleteNote(note.id)}>
+            <button id='button-delete' onClick={(e) => deleteNote(e, note.id)}>
                 Delete Note
             </button>
         </div>
