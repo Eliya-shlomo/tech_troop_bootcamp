@@ -9,14 +9,31 @@ function App() {
 
   const handleNewNote = (newContent) => {
     
+    const options = {
+      month: 'short',   
+      day: 'numeric',   
+      minute: '2-digit',
+      hour12: true      
+  };
+  
+    const dateWithTime = new Date().toLocaleString('en-US', options);
+
     const newNote = {
       id : Date.now(),
       content: newContent,
-      date: new Date().toLocaleDateString('he-IL')
+      date: dateWithTime
     }
 
     setNotes([newNote, ...notes]);
   }
+
+
+  const handleDeleteNote = (noteId) => {
+    
+    const updatedNotes = notes.filter((item) => item.id !== noteId);
+    
+    setNotes(updatedNotes);
+  };
 
 
   return (
@@ -25,7 +42,7 @@ function App() {
         <NoteForm onAddNote={handleNewNote}></NoteForm>
         <div className="notes-container">
           {notes.map((item)=>(
-            <Note key={item.id} note={item}></Note>
+            <Note key={item.id} note={item} onDeleteNote={handleDeleteNote}></Note>
           ))}
         </div>
       </div>
