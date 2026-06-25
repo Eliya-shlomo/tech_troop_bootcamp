@@ -1,41 +1,40 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 
-const NoteForm = ({onAddNote})=> {
+const NoteForm = ({ onAddNote }) => {
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!content.trim()) return; 
 
-    const [content, setContent] = useState('');
+    
+    onAddNote(title, content);
 
-    const cahngeContent = (e) =>{
-        setContent(e.target.value)
-    }
+  
+    setTitle("");
+    setContent("");
+  };
 
-    const submitContent = () => {
-        if (content.trim() === '') {
-            alert('Write before submitting');
-            return; 
-        }
-
-        onAddNote(content);
-        
-        setContent('');
-    };
-
-    return (
-        <>
-            <div className="form-group">
-                <label htmlFor="content">Content</label>
-                    <textarea
-                    id="content"
-                    rows="4"
-                    value={content}
-                    onChange={cahngeContent}
-                    placeholder='Write Here Your Content'
-                    required
-                    ></textarea>
-            </div>
-            <button type="submit" onClick={submitContent}>Submit</button>
-        </>
-    );
+  return (
+    <form onSubmit={handleSubmit} className="note-form">
+      <input
+        type="text"
+        placeholder="Note Title (Optional)..."
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        className="title-input"
+      />
+      
+      <textarea
+        placeholder="Take a note..."
+        value={content}
+        onChange={(e) => setContent(e.target.value)}
+        required
+      />
+      <button type="submit">Add Note</button>
+    </form>
+  );
 };
 
 export default NoteForm;

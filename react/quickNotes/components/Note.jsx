@@ -12,6 +12,8 @@ const Note = ({ note, onDeleteNote }) => {
 
     return (
         <div className='note-card'>
+            {note.title && <h3 className="note-title">{note.title}</h3>}
+            
             <p>{note.content}</p>
             <small>{note.date}</small> 
             

@@ -7,7 +7,7 @@ function App() {
   
   const [notes, setNotes] = useState([]);  
 
-  const handleNewNote = (newContent) => {
+  const handleNewNote = (title, content ) => {
     
     const options = {
       month: 'short',   
@@ -20,7 +20,8 @@ function App() {
 
     const newNote = {
       id : Date.now(),
-      content: newContent,
+      title: title,
+      content: content,
       date: dateWithTime
     }
 
@@ -29,7 +30,7 @@ function App() {
 
 
   const handleDeleteNote = (noteId) => {
-    
+
     const updatedNotes = notes.filter((item) => item.id !== noteId);
     
     setNotes(updatedNotes);
