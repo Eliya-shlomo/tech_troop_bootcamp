@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import { Modal, Title, Text, Button, MantineProvider, Group } from '@mantine/core'
 import './App.css'
 import Note from '../components/Note'
@@ -6,7 +6,20 @@ import NoteForm from '../components/NoteForm'
 import '@mantine/core/styles.css';
 
 function App() {
-  const [notes, setNotes] = useState([]);  
+  
+  const [notes, setNotes] = useState(() => {
+    try {
+      const saved = localStorage.getItem('notes');
+      return saved ? JSON.parse(saved) : [];
+    } catch (error) {
+      console.error("Failed to parse notes:", error);
+      return [];
+    }
+  });
+  
+  useEffect(() => {
+    localStorage.setItem('notes', JSON.stringify(notes));
+  }, [notes]);
   const [selectedNote, setSelectedNote] = useState(null);
   const [isEditing, setIsEditing] = useState(false); 
   
@@ -120,3 +133,7 @@ function App() {
 }
 
 export default App
+
+
+
+
