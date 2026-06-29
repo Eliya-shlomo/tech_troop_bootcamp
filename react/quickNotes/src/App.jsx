@@ -6,7 +6,7 @@ import NoteForm from '../components/NoteForm'
 import '@mantine/core/styles.css';
 
 function App() {
-  
+
   const [notes, setNotes] = useState(() => {
     try {
       const saved = localStorage.getItem('notes');
@@ -18,11 +18,25 @@ function App() {
   });
   
   useEffect(() => {
+    
     localStorage.setItem('notes', JSON.stringify(notes));
   }, [notes]);
+
+
   const [selectedNote, setSelectedNote] = useState(null);
   const [isEditing, setIsEditing] = useState(false); 
-  
+  const [searchTerm, setSearchTerm] = useState("")
+  const [categoryFilter,setCategoryFilter] = useState("All")
+
+
+  const searchedNotes = notes.filter(note => {
+    const matchesSearch = note.title.includes(searchTerm) || note.content.includes(searchTerm);
+    const matchesCategory = categoryFilter === "All" || note.category === categoryFilter;
+    return matchesSearch && matchesCategory;
+  });
+
+
+
   const handleNewNote = (noteData) => {
     const options = { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true };
     const dateWithTime = new Date().toLocaleString('en-US', options);
@@ -31,6 +45,7 @@ function App() {
       id : Date.now(),
       title: noteData.title, 
       content: noteData.content,
+      category: noteData.category,
       date: dateWithTime
     }
 
@@ -46,7 +61,7 @@ function App() {
     }
   };
 
-  const handleUpdateNote = (noteId, title, content) => {
+  const handleUpdateNote = (noteId, title, content ,category) => {
     const options = { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true };
     const currentFormattedDate = new Date().toLocaleString('en-US', options);
   
@@ -56,6 +71,7 @@ function App() {
           ...item, 
           title: title,     
           content: content,
+          category: category,
           updatedAt: currentFormattedDate 
         };
       }
@@ -68,6 +84,7 @@ function App() {
       ...selectedNote, 
       title: title, 
       content: content,
+      category: category,
       updatedAt: currentFormattedDate
     });
 
@@ -82,10 +99,16 @@ function App() {
   return (
     <MantineProvider>
       <div id='app-card'>
+      <button onClick={() => setCategoryFilter("All")}>All</button>
+      <button onClick={() => setCategoryFilter("personal")}>Personal</button>
+      <button onClick={() => setCategoryFilter("work")}>Work</button>
+      <input 
+        value={searchTerm} 
+        onChange={(e) => setSearchTerm(e.target.value)} 
+      />
         <NoteForm onAddNote={handleNewNote} />
-        
         <div className="notes-container">
-          {notes.map((item)=>(
+          {searchedNotes.map((item)=>(
             <div key={item.id} onClick={() => setSelectedNote(item)} style={{ cursor: 'pointer' }}>
               <Note note={item} onDeleteNote={handleDeleteNote}></Note>
             </div>

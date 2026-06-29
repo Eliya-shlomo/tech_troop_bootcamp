@@ -12,8 +12,14 @@ const Note = ({ note, onDeleteNote }) => {
         }
     };
 
+
+    const categoryColors = {
+        personal: "#d6e9ff",  
+        work: "#ffe0c2",      
+      };
+
     return (
-        <div className='note-card'>
+        <div className='note-card' style={{ backgroundColor: categoryColors[note.category] }}>
             {note.title && <h3 className="note-title">{note.title}</h3>}
             
             <p className="note-content">{note.content}</p>
